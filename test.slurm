@@ -30,9 +30,9 @@ singularity exec \
     python train.py \
       --model UNET_L \
       --data-dir ./data/ndws_modded \
-      --num-steps 10000 \
-      --batch-size 8 \
+      --num-steps 5000 \
+      --batch-size 32 \
       --loss weighted_BCE \
       --lr 3e-6 \
-      --checkpoint-dir ./checkpoints/unet_L_10k
+      --checkpoint-dir ./checkpoints/unet_L_55k
   '
