@@ -9,8 +9,8 @@
 #SBATCH --job-name=myTest
 #SBATCH --mail-type=END
 #SBATCH --mail-user=tgd8275@nyu.edu
-#SBATCH --output=/home/tgd8275/wildfire/outputs/slurm_%j.out
-#SBATCH --error=/home/tgd8275/wildfire/outputs/slurm_%j.err
+#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_%j.out
+#SBATCH --error=/scratch/tgd8275/wildfire/outputs/slurm_%j.err
 #SBATCH --requeue
 
 singularity exec --bind /scratch --nv --overlay /scratch/tgd8275/overlay-
