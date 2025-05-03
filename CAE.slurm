@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=12K
-#SBATCH --account=csci_ga_3033_109-2025sp
-#SBATCH --partition=n1s8-v100-1
+#SBATCH --account=csci_ga_3033_090-2025sp
+#SBATCH --partition=c12m85-a100-1
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
 
