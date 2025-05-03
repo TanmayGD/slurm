@@ -3,7 +3,7 @@
 #SBATCH --account=csci_ga_3033_090-2025sp
 #SBATCH --partition=n1s8-v100-1
 #SBATCH --time=04:00:00
-#SBATCH --mem=100GB
+#SBATCH --mem=50GB
 #SBATCH --gres=gpu:1
 
 #SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_UNETL10K_%j.out
