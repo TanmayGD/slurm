@@ -1,12 +1,12 @@
 #!/bin/bash
-#SBATCH --job-name=myTest
+#SBATCH --job-name=12K
 #SBATCH --account=csci_ga_3033_109-2025sp
 #SBATCH --partition=n1s8-v100-1
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
 
 #SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_UNETL12K_%j.out
-#SBATCH --error =/scratch/tgd8275/wildfire/outputs/slurm_%j.err
+#SBATCH --error=/scratch/tgd8275/wildfire/outputs/slurm_%j.err
 
 # Make sure Slurm can cd into a real folder:
 #SBATCH --chdir=/scratch/tgd8275/wildfire/cvse-wildfire
@@ -31,7 +31,7 @@ singularity exec \
       --model UNET_L \
       --data-dir ./data/ndws_modded \
       --num-steps 12000 \
-      --batch-size 16 \
+      --batch-size 32 \
       --loss weighted_BCE \
       --lr 2e-6 \
       --checkpoint-dir ./checkpoints/unet_L_12k
