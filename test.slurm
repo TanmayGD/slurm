@@ -19,5 +19,12 @@ ubuntu22.04.2.sif /bin/bash -c "
 
 source /ext3/miniconda3/etc/profile.d/conda.sh
 cd /scratch/tgd8275/wildfire/cvse-wildfire
-conda activate newEnv
-python temp_file.py
+conda activate cvse
+python train.py \
+  --model UNET \
+  --data-dir ./data/ndws_modded \
+  --num-steps 2000 \
+  --batch-size 64 \
+  --loss weighted_BCE \
+  --lr 5e-7 \
+  --checkpoint-dir ./checkpoints/unet_ubce1
