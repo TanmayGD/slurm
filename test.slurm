@@ -5,7 +5,7 @@
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
 
-#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_%j.out
+#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_UNETL10K_%j.out
 #SBATCH --error =/scratch/tgd8275/wildfire/outputs/slurm_%j.err
 
 # Make sure Slurm can cd into a real folder:
