@@ -31,7 +31,7 @@ singularity exec \
       --model UNET_L \
       --data-dir ./data/ndws_modded \
       --num-steps 10000 \
-      --batch-size 32 \
+      --batch-size 8 \
       --loss weighted_BCE \
       --lr 3e-6 \
       --checkpoint-dir ./checkpoints/unet_L_10k
