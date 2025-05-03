@@ -34,5 +34,5 @@ singularity exec \
       --batch-size 16 \
       --loss tversky \
       --lr 1e-5 \
-      --checkpoint-dir ./checkpoints/unet_L_10k
+      --checkpoint-dir ./checkpoints/unet_L_tver_5k
   '

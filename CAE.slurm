@@ -34,5 +34,5 @@ singularity exec \
       --batch-size 16 \
       --loss weighted_BCE \
       --lr 2e-6 \
-      --checkpoint-dir ./checkpoints/unet_L_10k
+      --checkpoint-dir ./checkpoints/unet_L_12k
   '
