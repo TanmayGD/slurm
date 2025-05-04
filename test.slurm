@@ -33,7 +33,7 @@ singularity exec \
       --data-dir ./data/ndws_modded \
       --num-steps 400 \
       --batch-size 64 \
-      --loss weighted_BCE \
-      --lr 3e-6 \
+      --loss dice \
+      --lr 3e-4 \
       --checkpoint-dir ./checkpoints/unet_L_4
   '
