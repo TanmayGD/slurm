@@ -29,8 +29,8 @@ singularity exec \
     source /ext3/miniconda3/etc/profile.d/conda.sh
     conda activate cvse
     python eval.py \
-      --model UNET_L \
+      --model UNET \
       --data-dir ./data/ndws_modded \
-      --checkpoint-dir ./checkpoints/unet_L_4/UNET_L-dice/step_0400/ckpt \
+      --checkpoint-dir ./checkpoints/unet_400/UNET-weighted_BCE/step_0400/ckpt \
       --batch-size 64
   '
