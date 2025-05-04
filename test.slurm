@@ -29,11 +29,11 @@ singularity exec \
     source /ext3/miniconda3/etc/profile.d/conda.sh
     conda activate cvse
     python train.py \
-      --model UNET_L \
+      --model UNET \
       --data-dir ./data/ndws_modded \
-      --num-steps 400 \
-      --batch-size 64 \
-      --loss dice \
-      --lr 3e-4 \
-      --checkpoint-dir ./checkpoints/unet_L_4
+        --num-steps 400 \
+        --batch-size 64 \
+        --loss tversky \
+        --lr 3e-5 \
+      --checkpoint-dir ./checkpoints/unet_4
   '
