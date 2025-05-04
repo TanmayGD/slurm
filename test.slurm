@@ -31,6 +31,6 @@ singularity exec \
     python eval.py \
       --model UNET \
       --data-dir ./data/ndws_modded \
-      --checkpoint-dir ./checkpoints/unet_400/UNET-weighted_BCE/step_0400/ckpt \
+      --checkpoint-dir ./checkpoints/unet_4/UNET-tversky/step_0400/ckpt \
       --batch-size 64
   '
