@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=myTest1
 #SBATCH --account=csci_ga_3033_090-2025sp
-#SBATCH --partition=n1s8-v100-1
+#SBATCH --partition=g2-standard-12
 #SBATCH --time=04:00:00
 #SBATCH --mem=20GB
 #SBATCH --gres=gpu:1
@@ -29,11 +29,11 @@ singularity exec \
     source /ext3/miniconda3/etc/profile.d/conda.sh
     conda activate cvse
     python train.py \
-      --model UNET_L \
+      --model UNET \
       --data-dir ./data/ndws_modded \
-      --num-steps 5000 \
-      --batch-size 32 \
+      --num-steps 400 \
+      --batch-size 64 \
       --loss weighted_BCE \
       --lr 3e-6 \
-      --checkpoint-dir ./checkpoints/unet_L_55k
+      --checkpoint-dir ./checkpoints/unet_400
   '

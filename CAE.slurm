@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=12K
 #SBATCH --account=csci_ga_3033_090-2025sp
-#SBATCH --partition=c12m85-a100-1
+#SBATCH --partition=g2-standard-12
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
 
@@ -30,9 +30,9 @@ singularity exec \
     python train.py \
       --model UNET_L \
       --data-dir ./data/ndws_modded \
-      --num-steps 12000 \
+      --num-steps 400 \
       --batch-size 32 \
-      --loss weighted_BCE \
-      --lr 2e-6 \
+      --loss tversky \
+      --lr 2e-4 \
       --checkpoint-dir ./checkpoints/unet_L_12k
   '
