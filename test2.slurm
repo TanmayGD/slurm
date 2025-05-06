@@ -5,7 +5,7 @@
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
 
-#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_MLP_T_%j.out
+#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_CAEN_T_%j.out
 #SBATCH --error=/scratch/tgd8275/wildfire/outputs/slurm_%j.err
 
 # Make sure Slurm can cd into a real folder:
@@ -28,11 +28,11 @@ singularity exec \
     source /ext3/miniconda3/etc/profile.d/conda.sh
     conda activate cvse
     python train.py \
-      --model MLPCNN \
+      --model NDWS_CAE \
       --data-dir ./data/ndws_modded \
       --num-steps 400 \
       --batch-size 8 \
       --loss tversky \
       --lr 5e-6 \
-      --checkpoint-dir ./checkpoints/mlp_final
+      --checkpoint-dir ./checkpoints/CAEN_final
   '
