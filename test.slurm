@@ -1,12 +1,11 @@
 #!/bin/bash
-#SBATCH --job-name=myTest1
-#SBATCH --account=csci_ga_3033_109-2025sp
+#SBATCH --job-name=12K
+#SBATCH --account=csci_ga_3033_090-2025sp
 #SBATCH --partition=g2-standard-12
 #SBATCH --time=04:00:00
-#SBATCH --mem=20GB
 #SBATCH --gres=gpu:1
 
-#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_UNETL10K_%j.out
+#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_unetl_T_%j.out
 #SBATCH --error=/scratch/tgd8275/wildfire/outputs/slurm_%j.err
 
 # Make sure Slurm can cd into a real folder:
@@ -28,9 +27,12 @@ singularity exec \
   bash -c '
     source /ext3/miniconda3/etc/profile.d/conda.sh
     conda activate cvse
-    python eval.py \
-      --model UNET \
+    python train.py \
+      --model UNET_L \
       --data-dir ./data/ndws_modded \
-      --checkpoint-dir ./checkpoints/unet_4/UNET-tversky/step_0400/ckpt \
-      --batch-size 64
+      --num-steps 400 \
+      --batch-size 8 \
+      --loss tversky \
+      --lr 5e-6 \
+      --checkpoint-dir ./checkpoints/unetl_final
   '

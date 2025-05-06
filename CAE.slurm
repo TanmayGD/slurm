@@ -5,7 +5,7 @@
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
 
-#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_UNETL12K_%j.out
+#SBATCH --output=/scratch/tgd8275/wildfire/outputs/slurm_unet_T_%j.out
 #SBATCH --error=/scratch/tgd8275/wildfire/outputs/slurm_%j.err
 
 # Make sure Slurm can cd into a real folder:
@@ -31,8 +31,8 @@ singularity exec \
       --model UNET \
       --data-dir ./data/ndws_modded \
       --num-steps 400 \
-      --batch-size 32 \
-      --loss focal \
-      --lr 2e-5 \
-      --checkpoint-dir ./checkpoints/unet_L_12k
+      --batch-size 8 \
+      --loss tversky \
+      --lr 5e-6 \
+      --checkpoint-dir ./checkpoints/unet_final
   '
