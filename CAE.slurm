@@ -33,6 +33,6 @@ singularity exec \
       --num-steps 400 \
       --batch-size 16 \
       --loss weighted_BCE \
-      --lr 2e-6 \
+      --lr 2e-5 \
       --checkpoint-dir ./checkpoints/unet_final
   '
