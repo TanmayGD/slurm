@@ -5,7 +5,7 @@
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
 
-#SBATCH --output=/scratch/tgd8275/wildfire/outputs/eval_unet_t_%j.out
+#SBATCH --output=/scratch/tgd8275/wildfire/outputs/final_L_T_aug_%j.out
 #SBATCH --error=/scratch/tgd8275/wildfire/outputs/slurm_%j.err
 
 # Make sure Slurm can cd into a real folder:
@@ -27,9 +27,12 @@ singularity exec \
   bash -c '
     source /ext3/miniconda3/etc/profile.d/conda.sh
     conda activate cvse
-    python eval.py \
-      --model UNET \
+    python train.py \
+      --model UNET_L \
       --data-dir ./data/ndws_modded \
-      --batch-size 32 \
-      --checkpoint-dir ./checkpoints/unet_final/UNET-tversky/step_0400/ckpt
+      --num-steps 400 \
+      --batch-size 8 \
+      --loss tversky \
+      --lr 5e-6 \
+      --checkpoint-dir ./checkpoints/final
   '
