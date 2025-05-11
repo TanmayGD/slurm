@@ -28,7 +28,7 @@ singularity exec \
     source /ext3/miniconda3/etc/profile.d/conda.sh
     conda activate cvse
     python train.py \
-      --model UNET \
+      --model UNET_L \
       --data-dir ./data/ndws_modded \
       --num-steps 400 \
       --batch-size 8 \
