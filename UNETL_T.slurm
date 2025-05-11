@@ -5,7 +5,7 @@
 #SBATCH --time=04:00:00
 #SBATCH --gres=gpu:1
 
-#SBATCH --output=/scratch/tgd8275/wildfire/outputs/final_L_T_aug_%j.out
+#SBATCH --output=/scratch/tgd8275/wildfire/outputs/final_OG_L_T_%j.out
 #SBATCH --error=/scratch/tgd8275/wildfire/outputs/slurm_%j.err
 
 # Make sure Slurm can cd into a real folder:
@@ -34,5 +34,5 @@ singularity exec \
       --batch-size 8 \
       --loss tversky \
       --lr 5e-6 \
-      --checkpoint-dir ./checkpoints/final
+      --checkpoint-dir ./checkpoints/final_OG
   '
